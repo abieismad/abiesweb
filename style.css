@@ -1,355 +1,908 @@
-{
-box-sizing: border-box;
+/* =========================================================
+   ABIESWEB — typography + base styling
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400&family=Patrick+Hand&family=Playfair+Display:ital,wght@0,400;1,400&display=swap');
+
+
+/* -------------------------
+   VARIABLES
+------------------------- */
+
+:root {
+    --bg: #172019;
+    --bg-light: #202a20;
+
+    --green: #65745c;
+    --green-dark: #303c31;
+
+    --brown: #665446;
+
+    --cream: #e9e3d5;
+    --grey: #a7a99f;
+    --dark-grey: #6e756b;
+
+    --gold: #b49a5d;
+
+    --line: rgba(233, 227, 213, .28);
 }
+
+
+/* -------------------------
+   RESET
+------------------------- */
+
+* {
+    box-sizing: border-box;
+}
+
 html {
-background: #171b16;
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
 }
 
 body {
-margin: 0;
-color: #d9d4c5;
-background: #171b16;
-font-family: "Courier New", monospace;
-font-size: 11px;
-line-height: 1.4;
+    margin: 0;
+    padding: 0;
+
+    background:
+        radial-gradient(
+            ellipse at top,
+            #273328 0%,
+            var(--bg) 55%
+        );
+
+    color: var(--cream);
+
+    /*
+       Small mono font is the closest overall
+       treatment for the tiny text-heavy
+       personal-web appearance.
+    */
+    font-family: "DM Mono", "Courier New", monospace;
+
+    font-size: 11px;
+
+    line-height: 1.45;
+
+    font-weight: 300;
 }
 
+
+/* -------------------------
+   LINKS
+------------------------- */
+
 a {
-color: inherit;
-text-decoration: none;
+    color: var(--cream);
+
+    text-decoration: underline;
+
+    text-decoration-thickness: 1px;
+
+    text-underline-offset: 2px;
 }
 
 a:hover {
-color: #c6ad69;
+    color: var(--gold);
 }
 
-.noise {
-position: fixed;
-inset: 0;
-pointer-events: none;
-opacity: .04;
-background-image:
-radial-gradient(#fff 1px, transparent 1px);
-background-size: 4px 4px;
+
+/* -------------------------
+   HEADINGS
+------------------------- */
+
+h1,
+h2,
+h3 {
+    margin-top: 0;
+
+    font-weight: 400;
 }
 
-/* ENTRANCE */
 
-.landing {
-min-height: 100vh;
-display: grid;
-place-items: center;
-text-align: center;
+/*
+   Serif/italic accent.
+   This is used sparingly instead of
+   making the entire website look like
+   a normal modern portfolio.
+*/
+
+h1,
+h2 {
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+    font-style: italic;
 }
 
-.entrance {
-width: 90%;
-max-width: 500px;
-}
 
-.tiny {
-color: #a99c78;
-font-size: 8px;
-letter-spacing: 2px;
-text-transform: uppercase;
-}
-
-.entrance h1 {
-margin: 18px 0;
-font-family: Georgia, serif;
-font-weight: normal;
-font-style: italic;
-font-size: clamp(55px, 12vw, 100px);
-letter-spacing: -5px;
-color: #e4dfd0;
-}
-
-.ornament {
-color: #b59a58;
-margin: 25px;
-}
-
-.entrance p {
-color: #94988c;
-font-size: 10px;
-line-height: 1.8;
-}
-
-.enter {
-display: inline-block;
-margin: 25px 0;
-padding: 9px 17px;
-border: 1px solid #85774f;
-font-size: 9px;
-}
-
-.enter:hover {
-background: #b59a58;
-color: #171b16;
-}
-
-.entrance small {
-display: block;
-color: #555b52;
-font-size: 7px;
-}
-
-/* SITE */
+/* -------------------------
+   SITE WIDTH
+------------------------- */
 
 .site {
-width: min(1000px, calc(100% - 30px));
-margin: auto;
+    width: min(920px, calc(100% - 24px));
+
+    margin: 0 auto;
 }
+
+
+/* -------------------------
+   HEADER
+------------------------- */
 
 header {
-min-height: 100px;
-display: flex;
-align-items: center;
-justify-content: space-between;
-border-bottom: 1px dotted #555b52;
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-end;
+
+    padding:
+        25px
+        5px
+        10px;
+
+    border-bottom: 1px dotted var(--line);
 }
+
 
 .logo {
-font-family: Georgia, serif;
-font-style: italic;
-font-size: 35px;
-letter-spacing: -2px;
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+    font-style: italic;
+
+    font-size: 28px;
+
+    line-height: 1;
+
+    text-decoration: none;
 }
+
 
 .logo span {
-color: #b59a58;
+    color: var(--gold);
 }
+
 
 .status {
-color: #777d71;
-font-size: 8px;
+    color: var(--dark-grey);
+
+    font-size: 8px;
 }
 
-.status::before {
-content: "● ";
-color: #82906f;
-}
+
+/* -------------------------
+   NAVIGATION
+------------------------- */
 
 nav {
-display: flex;
-flex-wrap: wrap;
-gap: 16px;
-padding: 12px 0;
-border-bottom: 1px dotted #555b52;
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px 15px;
+
+    padding: 8px 5px;
+
+    border-bottom:
+        1px dotted
+        var(--line);
+
+    font-size: 8px;
 }
+
 
 nav a {
-font-size: 8px;
-color: #92978c;
+    text-decoration: none;
+
+    color: var(--grey);
 }
+
 
 nav a:hover {
-color: #c6ad69;
+    color: var(--gold);
 }
 
-/* GRID */
 
-.web-grid {
-display: grid;
-grid-template-columns: 1fr 1.4fr .8fr;
-gap: 10px;
-padding: 25px 0;
+/* -------------------------
+   SMALL TEXT
+------------------------- */
+
+.tiny {
+    font-size: 7px;
+
+    color: var(--dark-grey);
+
+    letter-spacing: .3px;
 }
 
-.box {
-border: 1px dotted #596052;
-padding: 15px;
-background: rgba(66,77,60,.08);
-}
-
-.box h2 {
-margin: 0 0 13px;
-font-family: Georgia, serif;
-font-style: italic;
-font-weight: normal;
-color: #c7b982;
-font-size: 18px;
-}
-
-.box p {
-color: #999c91;
-font-size: 10px;
-}
-
-.hero {
-min-height: 300px;
-display: flex;
-flex-direction: column;
-justify-content: center;
-}
-
-.hero h1 {
-margin: 0 0 20px;
-font-family: Georgia, serif;
-font-size: 54px;
-font-style: italic;
-font-weight: normal;
-line-height: .9;
-}
-
-.hero h1 span {
-color: #b59a58;
-}
-
-.photo {
-min-height: 220px;
-display: grid;
-place-items: center;
-background:
-linear-gradient(145deg,#53634c,#343a30 50%,#242720);
-color: #89917e;
-font-size: 9px;
-}
-
-.tiny-box {
-min-height: 80px;
-}
 
 .tiny-title {
-color: #b59a58;
-font-size: 8px;
-margin-bottom: 8px;
+    margin-bottom: 7px;
+
+    color: var(--gold);
+
+    font-size: 8px;
+
+    text-transform: lowercase;
 }
 
-.big-number {
-font-family: Georgia, serif;
-font-size: 35px;
-color: #d2ccb9;
+
+/* -------------------------
+   MAIN CONTENT
+------------------------- */
+
+main {
+    padding:
+        20px
+        0
+        40px;
 }
 
-/* LINKS */
 
-.link-list {
-display: grid;
-grid-template-columns: repeat(2,1fr);
-gap: 5px;
+/* -------------------------
+   BOXES
+------------------------- */
+
+.box {
+    border: 1px dotted var(--line);
+
+    padding: 15px;
+
+    background:
+        rgba(40, 51, 41, .25);
 }
 
-.link-list a {
-padding: 9px;
-border: 1px dotted #4c5449;
-font-size: 9px;
+
+.box h2 {
+    font-size: 17px;
+
+    margin-bottom: 12px;
 }
 
-.link-list a:hover {
-background: rgba(181,154,88,.1);
-}
 
-/* SITEMAP */
-
-.map {
-padding: 50px 0;
-}
-
-.map-title {
-text-align: center;
-font-family: Georgia, serif;
-font-style: italic;
-font-size: 55px;
-font-weight: normal;
-}
-
-.map-grid {
-display: grid;
-grid-template-columns: repeat(3,1fr);
-gap: 7px;
-max-width: 800px;
-margin: 40px auto;
-}
-
-.map-item {
-border: 1px dotted #596052;
-padding: 18px;
-}
-
-.map-item strong {
-display: block;
-font-family: Georgia, serif;
-font-style: italic;
-font-size: 20px;
-font-weight: normal;
-}
-
-.map-item small {
-color: #747a70;
-font-size: 7px;
-}
-
-/* PAGE */
-
-.page {
-padding: 70px 0;
-}
-
-.page-title {
-font-family: Georgia, serif;
-font-style: italic;
-font-weight: normal;
-font-size: 60px;
-color: #d9d4c5;
-}
-
-.page-title span {
-color: #b59a58;
-}
-
-.paper {
-max-width: 700px;
-border: 1px dotted #596052;
-padding: 30px;
-color: #999c91;
-}
-
-.paper p {
-max-width: 600px;
-}
-
-/* FOOTER */
-
-footer {
-border-top: 1px dotted #555b52;
-padding: 35px 0;
-margin-top: 20px;
-text-align: center;
-color: #555b52;
-font-size: 7px;
-}
-
-/* MOBILE */
-
-@media (max-width:700px) {
+/* -------------------------
+   HOME LAYOUT
+------------------------- */
 
 .web-grid {
-    grid-template-columns: 1fr;
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        1.5fr
+        .8fr;
+
+    gap: 8px;
+
+    align-items: start;
 }
 
-.map-grid {
-    grid-template-columns: 1fr 1fr;
+
+.hero {
+    min-height: 300px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
 }
+
 
 .hero h1 {
-    font-size: 45px;
+    font-size: 38px;
+
+    line-height: .95;
+
+    margin:
+        5px
+        0
+        20px;
 }
 
+
+.hero h1 span {
+    color: var(--gold);
 }
 
-@media (max-width:450px) {
 
-.site {
-    width: calc(100% - 20px);
+.hero p {
+    max-width: 270px;
+
+    color: var(--grey);
+
+    font-size: 9px;
 }
+
+
+/* -------------------------
+   IMAGE / GIF BOX
+------------------------- */
+
+.photo {
+    min-height: 260px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    color: var(--dark-grey);
+
+    background:
+        linear-gradient(
+            135deg,
+            #596a53,
+            #384238,
+            #282c26
+        );
+
+    font-family:
+        "Patrick Hand",
+        cursive;
+
+    font-size: 16px;
+}
+
+
+/*
+   When you have your own GIF,
+   simply use:
+
+   <img class="site-gif" src="../assets/gifs/name.gif">
+
+*/
+
+.site-gif {
+    display: block;
+
+    max-width: 100%;
+
+    height: auto;
+
+    margin: 0 auto;
+}
+
+
+/* -------------------------
+   SIDEBAR
+------------------------- */
+
+aside {
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+.tiny-box {
+    min-height: 75px;
+}
+
+
+.big-number {
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+    font-size: 30px;
+
+    color: var(--gold);
+}
+
+
+.tiny-box p {
+    margin: 0;
+
+    color: var(--grey);
+
+    font-size: 8px;
+}
+
+
+/* -------------------------
+   LINK AREA
+------------------------- */
+
+.link-list {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 5px;
+}
+
+
+.link-list a {
+    padding: 5px 8px;
+
+    border:
+        1px dotted
+        rgba(180,154,93,.5);
+
+    font-size: 8px;
+
+    text-decoration: none;
+}
+
+
+.link-list a:hover {
+    background:
+        rgba(180,154,93,.1);
+
+    color: var(--gold);
+}
+
+
+/* -------------------------
+   MAP
+------------------------- */
+
+.map {
+    padding:
+        45px
+        0;
+}
+
+
+.map-title {
+    margin: 8px 0 35px;
+
+    text-align: center;
+
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+    font-size: 47px;
+
+    font-style: italic;
+
+    font-weight: 400;
+}
+
+
+.map-title span {
+    color: var(--gold);
+}
+
 
 .map-grid {
-    grid-template-columns: 1fr;
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 6px;
+
+    max-width: 750px;
+
+    margin: auto;
 }
 
-nav {
-    gap: 10px;
+
+.map-item {
+    display: block;
+
+    min-height: 85px;
+
+    padding: 14px;
+
+    border:
+        1px dotted
+        var(--line);
+
+    text-decoration: none;
+
+    transition:
+        background .15s ease,
+        transform .15s ease;
 }
+
+
+.map-item:hover {
+    background:
+        rgba(101,116,92,.15);
+
+    transform:
+        translateY(-2px);
+}
+
+
+.map-item strong {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+    font-size: 17px;
+
+    font-style: italic;
+
+    font-weight: 400;
+}
+
+
+.map-item small {
+    color: var(--dark-grey);
+
+    font-size: 7px;
+}
+
+
+/* -------------------------
+   NORMAL PAGE
+------------------------- */
+
+.page {
+    max-width: 760px;
+
+    margin: auto;
+
+    padding:
+        50px
+        0;
+}
+
+
+.page-title {
+    margin:
+        8px
+        0
+        30px;
+
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+    font-size: 48px;
+
+    font-style: italic;
+
+    font-weight: 400;
+}
+
+
+.page-title span {
+    color: var(--gold);
+}
+
+
+.paper {
+    padding: 25px;
+
+    border:
+        1px dotted
+        var(--line);
+
+    background:
+        rgba(53, 65, 53, .16);
+
+    color: var(--grey);
+
+    font-size: 10px;
+
+    line-height: 1.8;
+}
+
+
+.paper p {
+    max-width: 620px;
+}
+
+
+/* -------------------------
+   HANDWRITTEN ACCENT
+------------------------- */
+
+.handwritten {
+    font-family:
+        "Patrick Hand",
+        cursive;
+
+    font-size: 16px;
+
+    color: var(--gold);
+}
+
+
+/* -------------------------
+   IMAGE COLLAGE
+------------------------- */
+
+.image-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 5px;
+}
+
+
+.image-grid img {
+    width: 100%;
+
+    display: block;
+
+    border: 1px dotted var(--line);
+}
+
+
+/* -------------------------
+   GIF / BUTTON WALL
+------------------------- */
+
+.button-wall {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 4px;
+
+    align-items: flex-start;
+}
+
+
+.button-wall img {
+    width: 88px;
+
+    height: 31px;
+
+    image-rendering: pixelated;
+}
+
+
+/* -------------------------
+   POLL
+------------------------- */
+
+.poll {
+    font-size: 8px;
+}
+
+
+.poll label {
+    display: block;
+
+    margin:
+        4px
+        0;
+
+    color: var(--grey);
+}
+
+
+/* -------------------------
+   EMBEDS
+------------------------- */
+
+.embed {
+    width: 100%;
+
+    border:
+        1px dotted
+        var(--line);
+
+    overflow: hidden;
+}
+
+
+.embed iframe {
+    display: block;
+
+    width: 100%;
+
+    border: 0;
+}
+
+
+/* -------------------------
+   FOOTER
+------------------------- */
+
+footer {
+    padding:
+        25px
+        0
+        45px;
+
+    border-top:
+        1px dotted
+        var(--line);
+
+    text-align: center;
+
+    color: var(--dark-grey);
+
+    font-size: 7px;
+}
+
+
+footer a {
+    color: var(--dark-grey);
+
+    text-decoration: none;
+}
+
+
+/* -------------------------
+   ENTRANCE PAGE
+------------------------- */
+
+.landing {
+    min-height: 100vh;
+
+    display: grid;
+
+    place-items: center;
+
+    text-align: center;
+
+    padding: 20px;
+}
+
+
+.entrance {
+    width: min(500px, 100%);
+}
+
+
+.entrance .tiny {
+    margin-bottom: 20px;
+
+    letter-spacing: 1.5px;
+}
+
+
+.entrance h1 {
+    margin: 0;
+
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(
+            60px,
+            14vw,
+            105px
+        );
+
+    font-style: italic;
+
+    font-weight: 400;
+
+    letter-spacing: -5px;
+}
+
+
+.ornament {
+    margin: 20px 0;
+
+    color: var(--gold);
+
+    letter-spacing: 5px;
+}
+
+
+.entrance p {
+    color: var(--grey);
+
+    font-size: 9px;
+
+    line-height: 1.8;
+}
+
+
+.enter {
+    display: inline-block;
+
+    margin-top: 20px;
+
+    padding:
+        7px
+        14px;
+
+    border:
+        1px solid
+        var(--gold);
+
+    color: var(--cream);
+
+    font-size: 8px;
+
+    text-decoration: none;
+}
+
+
+.enter:hover {
+    color: var(--bg);
+
+    background: var(--gold);
+}
+
+
+/* -------------------------
+   RESPONSIVE
+------------------------- */
+
+@media (max-width: 750px) {
+
+    .web-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        min-height: 220px;
+    }
+
+    .photo {
+        min-height: 220px;
+    }
+
+    .map-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .image-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 450px) {
+
+    body {
+        font-size: 10px;
+    }
+
+    .site {
+        width:
+            calc(100% - 16px);
+    }
+
+    header {
+        padding-top: 15px;
+    }
+
+    .logo {
+        font-size: 23px;
+    }
+
+    nav {
+        gap: 6px 11px;
+    }
+
+    .map-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-title {
+        font-size: 38px;
+    }
 
 }
